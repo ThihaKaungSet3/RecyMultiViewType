@@ -15,7 +15,7 @@ public class BannerViewHolder extends RecyclerView.ViewHolder {
         bannerTXT = itemView.findViewById(R.id.bannerTxt);
 
     }
-
+    //
 
     /**
      * You can use Polymorphism right away
