@@ -19,11 +19,18 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView = findViewById(R.id.recyclerView);
 
         List<MyModel> models = new ArrayList<>();
+        List<Movie> movies = new ArrayList<>();
+        movies.add(new Movie("Rick and morty",R.mipmap.rickandmorty));
+        movies.add(new Movie("Stranger things",R.mipmap.strangerthings));
+        movies.add(new Movie("Punisher",R.mipmap.punisher));
+
+
         models.add(new MyModel("banner","Banner"));
         models.add(new MyModel("list","List"));
         models.add(new MyModel("list","List"));
         models.add(new MyModel("list","List"));
         models.add(new MyModel("AD","AD"));
+        models.add(new MyModel("movie",movies));
         models.add(new MyModel("list","List"));
         models.add(new MyModel("list","List"));
         models.add(new MyModel("AD","AD"));

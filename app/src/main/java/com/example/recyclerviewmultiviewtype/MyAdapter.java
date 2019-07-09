@@ -19,6 +19,7 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public static final int BANNER_VIEW_TYPE  = 0;
     public static final int LIST_VIEW_TYPE = 1;
     public static final int AD_VIEW_TYPE = 2;
+    public static final int MOVIE_VIEW_TYPE = 3;
 
     public MyAdapter(List<MyModel> myModels, Context context){
         this.context = context;
@@ -45,6 +46,8 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             case "AD" :
                 Log.d(TAG, "AD ");
                 return 2;
+            case "movie":
+                return 3;
             default: return 1;
         }
     }
@@ -62,6 +65,8 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             case AD_VIEW_TYPE :
                 Log.d(TAG, "adok ");
                 return new AdViewHolder(getView(R.layout.ad_item,parent));
+            case MOVIE_VIEW_TYPE:
+                return new ParentMovieViewHolder(getView(R.layout.horizontal_view,parent));
 
             default: return new BannerViewHolder(getView(R.layout.banner_item,parent));
         }
@@ -84,6 +89,9 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             case AD_VIEW_TYPE: AdViewHolder adViewHolder = (AdViewHolder) holder;
                                     adViewHolder.setModel(myModel);
                                     adViewHolder.setDatatoSpecificfield();
+                                    break;
+            case MOVIE_VIEW_TYPE: ParentMovieViewHolder movieViewHolder = (ParentMovieViewHolder)holder;
+                                    movieViewHolder.setData(context,myModel.getMovie());
                                     break;
         }
 
